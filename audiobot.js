@@ -4,6 +4,7 @@ var fs = require('fs');
 var config = require('./config/config.js');
 var os = require('os');
 var platform = os.platform();
+console.log(platform);
 if(platform === 'win32') {
     var winsay = require('winsay');
 }
@@ -75,7 +76,7 @@ slack.on('message', function(message) {
         //get message text
         var messageText = message.text;
         var outputDevice = '';
-        var player = 'afplay ';
+        var player = 'omxplayer ';
         if(messageText) {
             //pick output device 1 = headphones, 2 = speakers (default) - windows only
             if(platform === 'win32') {
